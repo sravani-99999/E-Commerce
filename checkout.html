@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - My E-Commerce Store</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #8B0000; /* maroon */
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    section {
+      background-color: white;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #8B0000;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #8B0000; /* maroon */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #a50000;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Checkout</h1>
+    <a href="index.html" style="text-decoration:none;">
+      <button style="margin-top:10px;padding:10px 20px;border-radius:5px;border:none;cursor:pointer;">Continue Shopping</button>
+    </a>
+  </header>
+
+  <main>
+    <!-- Cart Summary -->
+    <section id="checkout-cart-section">
+      <h2>Your Cart</h2>
+      <ul id="checkout-cart-items"></ul>
+      <h3>Total: ₹<span id="checkout-total-price">0</span></h3>
+    </section>
+
+    <!-- Shipping & Payment Form -->
+    <section id="checkout-form-section">
+      <h2>Shipping & Payment Details</h2>
+      <form id="checkout-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" placeholder="Enter your address" rows="3" required></textarea>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="City" required>
+
+        <label for="pincode">Pincode</label>
+        <input type="text" id="pincode" name="pincode" placeholder="Pincode" required>
+
+        <label for="payment">Payment Method</label>
+        <select id="payment" name="payment" required>
+          <option value="cod">Cash on Delivery</option>
+          <option value="card">Credit/Debit Card</option>
+          <option value="upi">UPI</option>
+        </select>
+
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

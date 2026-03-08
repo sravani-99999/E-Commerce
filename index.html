@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My E-Commerce Store</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #8B0000; /* maroon */
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      background-color: white;
+      color: #8B0000;
+      font-weight: bold;
+    }
+
+    header button:hover {
+      background-color: #a50000;
+      color: white;
+    }
+
+    #search {
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .product button {
+      margin-top: 5px;
+      padding: 8px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #8B0000;
+      color: white;
+      font-weight: bold;
+    }
+
+    .product button:hover {
+      background-color: #a50000;
+    }
+
+    .cart-section, .wishlist-section {
+      display: none; /* hidden by default */
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      overflow-y: auto;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .cart-section ul, .wishlist-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cart-section li, .wishlist-section li {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    .cart-section button, .wishlist-section button {
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My E-Commerce Store</h1>
+    <button onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</button>
+    <button onclick="toggleWishlist()">Wishlist (<span id="wishlist-count">0</span>)</button>
+  </header>
+
+  <!-- Cart Section -->
+  <div class="cart-section" id="cart-section">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <h3>Total: ₹<span id="total-price">0</span></h3>
+    <a href="checkout.html"><button>Checkout</button></a>
+  </div>
+
+  <!-- Wishlist Section -->
+  <div class="wishlist-section" id="wishlist-section">
+    <h2>Your Wishlist</h2>
+    <ul id="wishlist-items"></ul>
+  </div>
+
+  <!-- Search -->
+  <input type="text" id="search" placeholder="Search products..." onkeyup="searchProduct()">
+
+  <!-- Product List -->
+  <div class="products" id="product-list"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
